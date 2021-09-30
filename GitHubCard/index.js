@@ -11,7 +11,7 @@ const URL = (username) => `https://api.github.com/users/${username}`
 const getGithubData = (username) => {
   axios
     .get(URL(username))
-    .then((res) => console.log(githubCard(res.data)))
+    .then((res) => entryPoint.append(githubCard(res.data)))
     .catch((err) => console.error(err))
     .finally(() => console.log('done'))
 }
@@ -30,6 +30,8 @@ getGithubData('mrjacobsullivan')
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards
 */
+
+const entryPoint = document.querySelector('.cards')
 
 /*
   STEP 5: Now that you have your own card getting added to the DOM, either
@@ -84,13 +86,19 @@ const githubCard = (data) => {
   h3.textContent = data.name
   username.classList.add('username')
   username.textContent = data.login
-  location.textContent = `Location: ${data.location}`
-  profile.textContent = 'Location: '
+  location.textContent = `Location: ${data.location || 'N/A'}`
+  profile.textContent = 'Profile: '
   profileLink.href = data.html_url
-  profileLink.textContent = data.html_url
-  followers.textContent = data.followers
-  following.textContent = data.following
-  bio.textContent = `Bio: ${data.bio}`
+  profileLink.target = '_blank'
+  profileLink.rel = 'noopener noreferrer'
+  profileLink.textContent = data.html_url.slice(8)
+  followers.textContent = `Followers: ${data.followers}`
+  following.textContent = `Following: ${data.following}`
+  bio.textContent = `Bio: ${data.bio || 'N/A'}`
+
+  card.append(avatar, info)
+  info.append(h3, username, location, profile, followers, following, bio)
+  profile.append(profileLink)
 
   return card
 }
