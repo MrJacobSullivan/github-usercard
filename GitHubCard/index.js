@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
@@ -28,7 +30,7 @@
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = []
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
