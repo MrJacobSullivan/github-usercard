@@ -63,6 +63,20 @@ const followersArray = []
     </div>
 */
 
+const githubCard = ({ avatar_url, name, login, location, html_url, followers, following, bio }) => {
+  const cardDiv = document.createElement('div')
+  const avatarImg = document.createElement('img')
+  const infoDiv = document.createElement('div')
+  const nameHeading = document.createElement('h3')
+  const usernameParagraph = document.createElement('p')
+  const locationParagraph = document.createElement('p')
+  const profileParagraph = document.createElement('p')
+  const profileLink = document.createElement('a')
+  const followersParagraph = document.createElement('p')
+  const followingParagraph = document.createElement('p')
+  const bioParagraph = document.createElement('p')
+}
+
 /*
   List of LS Instructors Github username's:
     tetondan
