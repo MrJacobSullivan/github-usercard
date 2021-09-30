@@ -8,14 +8,15 @@ import axios from 'axios'
 
 const URL = (username) => `https://api.github.com/users/${username}`
 
-axios
-  .get(URL('mrjacobsullivan'))
-  .then((res) => {
-    console.log(res)
-  })
-  .catch((err) => {
-    console.error(err)
-  })
+const getGithubData = (username) => {
+  axios
+    .get(URL(username))
+    .then((res) => console.log(res.data))
+    .catch((err) => console.error(err))
+    .finally(() => console.log('done'))
+}
+
+getGithubData('mrjacobsullivan')
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
