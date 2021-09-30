@@ -11,7 +11,7 @@ const URL = (username) => `https://api.github.com/users/${username}`
 const getGithubData = (username) => {
   axios
     .get(URL(username))
-    .then((res) => console.log(res.data))
+    .then((res) => console.log(githubCard(res.data)))
     .catch((err) => console.error(err))
     .finally(() => console.log('done'))
 }
@@ -63,19 +63,36 @@ const followersArray = []
       </div>
     </div>
 */
-
-const githubCard = ({ avatar_url, name, login, location, html_url, followers, following, bio }) => {
-  const cardDiv = document.createElement('div')
-  const avatarImg = document.createElement('img')
-  const infoDiv = document.createElement('div')
-  const nameHeading = document.createElement('h3')
-  const usernameParagraph = document.createElement('p')
-  const locationParagraph = document.createElement('p')
-  const profileParagraph = document.createElement('p')
+// avatar_url, name, login, location, html_url, followers, following, bio
+const githubCard = (data) => {
+  const card = document.createElement('div')
+  const avatar = document.createElement('img')
+  const info = document.createElement('div')
+  const h3 = document.createElement('h3')
+  const username = document.createElement('p')
+  const location = document.createElement('p')
+  const profile = document.createElement('p')
   const profileLink = document.createElement('a')
-  const followersParagraph = document.createElement('p')
-  const followingParagraph = document.createElement('p')
-  const bioParagraph = document.createElement('p')
+  const followers = document.createElement('p')
+  const following = document.createElement('p')
+  const bio = document.createElement('p')
+
+  card.classList.add('card')
+  avatar.src = data.avatar_url
+  info.classList.add('card-info')
+  h3.classList.add('name')
+  h3.textContent = data.name
+  username.classList.add('username')
+  username.textContent = data.login
+  location.textContent = `Location: ${data.location}`
+  profile.textContent = 'Location: '
+  profileLink.href = data.html_url
+  profileLink.textContent = data.html_url
+  followers.textContent = data.followers
+  following.textContent = data.following
+  bio.textContent = `Bio: ${data.bio}`
+
+  return card
 }
 
 /*
