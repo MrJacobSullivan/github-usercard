@@ -6,6 +6,17 @@ import axios from 'axios'
     https://api.github.com/users/<your name>
 */
 
+const URL = (username) => `https://api.github.com/users/${username}`
+
+axios
+  .get(URL('mrjacobsullivan'))
+  .then((res) => {
+    console.log(res)
+  })
+  .catch((err) => {
+    console.error(err)
+  })
+
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
