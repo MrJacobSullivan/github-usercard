@@ -42,8 +42,8 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 #### Option 1 (adding Axios via script element)
 
-- [ ] Include the script element linking the `axios` library in your HTML.
-- [ ] If you do not remember the code you can find it [here](https://github.com/axios/axios).
+- [x] Include the script element linking the `axios` library in your HTML.
+- [x] If you do not remember the code you can find it [here](https://github.com/axios/axios).
 
 #### Option 2 (installing Axios with npm)
 
@@ -53,7 +53,7 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 ### Part 1: Requesting Data from the GitHub API
 
-- [ ] Follow the instructions found in the `GitHubCard/index.js` file to request data from the GitHub API.
+- [x] Follow the instructions found in the `GitHubCard/index.js` file to request data from the GitHub API.
 
 ### Part 2: Create the component function
 
